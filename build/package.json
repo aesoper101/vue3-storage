@@ -1,0 +1,33 @@
+{
+  "name": "vue3-storage",
+  "version": "0.1.4",
+  "description": "Vue3 plugin for work with local storage, session storage and websql from Vue context, inspired by tarojs and vue-ls.",
+  "main": "vue3-storage.esm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aesoper101/vue3-storage.git"
+  },
+  "private": false,
+  "types": "packages/index.d.ts",
+  "keywords": [
+    "vue3",
+    "vue3-storage",
+    "storage",
+    "localstorage",
+    "sessionstorage",
+    "promiss"
+  ],
+  "author": "aesoper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aesoper101/vue3-storage/issues"
+  },
+  "homepage": "https://github.com/aesoper101/vue3-storage#readme",
+  "peerDependencies": {
+    "vue": "^3.0.0",
+    "core-js": "^3.6.5"
+  }
+}
