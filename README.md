@@ -84,6 +84,7 @@ export interface StorageInterface {
      * @param option
      */
     getStorage<T = any>(option: GetStorageOption<T>): Promise<GetStorageSuccessCallbackResult<T>>;
+    
     /**
      * Synchronous storage
      * 
@@ -91,6 +92,7 @@ export interface StorageInterface {
      *
      */
     getStorageSync<T = any>(key: string): T | undefined;
+    
     /**
      * Synchronously obtain the storage content of the corresponding key
      *
@@ -99,57 +101,68 @@ export interface StorageInterface {
      * @param expire
      */
     setStorageSync(key: string, data: any, expire?: number): void;
+    
     /**
      * Asynchronously obtain the storage content of the corresponding key
      *
      * @param option
      */
     setStorage(option: SetStorageOption): Promise<CallbackResult>;
+    
     /**
      * Determine whether the data has expired
      * @param key
      */
     isExpire(key: string): boolean;
+    
     /**
      * Correspondingly obtained key name index
      * @param index
      */
     key(index: number): string | null;
+    
     /**
      * Determine whether the key name exists
      *
      * @param key
      */
     hasKey(key: string): boolean;
+    
     /**
      * Asynchronously remove the specified key from the local cache
      *
      * @param option
      */
     removeStorage(option: RemoveStorageOption): Promise<CallbackResult>;
+    
     /**
      * Synchronously remove the specified key from the local cache
      *
      * @param name
      */
     removeStorageSync(name: string): void;
+    
     /**
      * Get current storage information asynchronously
      *
      * @param option
      */
     getStorageInfo(option?: GetStorageInfoSuccessCallbackOption): Promise<CallbackResult>;
+    
     /** Get current storage information synchronously */
     getStorageInfoSync(): GetStorageInfoOption;
+    
     /**
      * Clean up local data cache asynchronously
      * @param option
      */
     clearStorage(option?: ClearStorageOption): Promise<CallbackResult>;
+    
     /**
      * Synchronously clean the local data cache
      */
     clearStorageSync(): void;
+   
     /**
      * Set storage namespace
      * @param namespace
