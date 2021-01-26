@@ -16,7 +16,7 @@ npm install vue3-storage
 The main version Supports Vue 3.x only
 
 
-### Usage
+## Usage
 
 ### The First Step
 Register 
@@ -74,6 +74,59 @@ export default defineComponent({
 });
 </script>
 ````
+
+You can still use it like this:
+```vue
+<script lang="ts">
+import { defineComponent } from "vue";
+import { useStorage } from "vue3-storage";
+import { CallbackResult } from "vue3-storage/dist/lib/types";
+
+export default defineComponent({
+  setup() {
+    const storage = useStorage();
+
+    storage?.setStorage({
+      key: "test-key",
+      data: "testdata22",
+      success: (callback: CallbackResult) => {
+        console.log(callback.errMsg);
+      }
+    });
+    return {};
+  }
+});
+</script>
+```
+
+Use promise
+```js
+<script lang="ts">
+import { defineComponent } from "vue";
+import { useStorage } from "vue3-storage";
+import { CallbackResult } from "vue3-storage/dist/lib/types";
+
+export default defineComponent({
+  setup() {
+    const storage = useStorage();
+
+    storage
+      ?.setStorage({
+        key: "test-key",
+        data: "testdata22"
+      })
+      .then((successCallback: CallbackResult) => {
+        console.log(successCallback.errMsg);
+      })
+      .catch((failCallback: CallbackResult) => {
+        console.log(failCallback.errMsg);
+      });
+    return {};
+  }
+});
+</script>
+
+```
 
 ## Storage API
 
