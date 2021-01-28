@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import Vue3Storage from "../packages";
+import Vue3Storage from "vue3-storage";
 
 createApp(App)
   .use(router)

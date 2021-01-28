@@ -14,7 +14,8 @@ import pkg from "../package.json";
 
 const deps = Object.keys(pkg.dependencies);
 
-const browserPath = path.resolve(__dirname, "../.browserslistrc");
+const projectRoot = path.resolve(__dirname, "..");
+const browserPath = path.resolve(projectRoot, ".browserslistrc");
 
 const esbrowserslist = fs
   .readFileSync(browserPath)
@@ -23,8 +24,6 @@ const esbrowserslist = fs
   .filter(entry => entry && entry.substring(0, 2) !== "ie");
 
 const argv = minimist(process.argv.slice(2));
-
-const projectRoot = path.resolve(__dirname, "..");
 
 // ESM/UMD/IIFE shared settings: externals
 // Refer to https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency
@@ -54,7 +53,7 @@ const buildFormats = [];
 
 if (!argv.format || argv.format === "es") {
   const esConfig = {
-    input: path.resolve(__dirname, "../packages/index.ts"),
+    input: path.resolve(projectRoot, "packages/index.ts"),
     external,
     output: {
       file: pkg.module,

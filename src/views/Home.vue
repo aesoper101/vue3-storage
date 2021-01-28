@@ -6,8 +6,7 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-// import { useStorage } from "../../packages";
-import { useStorage } from "../../dist/vue3-storage.esm.js";
+import { useStorage } from "vue3-storage";
 
 @Options({
   components: {}
@@ -17,18 +16,14 @@ export default class Home extends Vue {
     const testdata = { a: 11, b: 221 };
 
     const storage = useStorage();
-    // storage?.setStorageSync("test", testdata);
-    //
+
     storage?.setStorage({
-      key: "ss",
+      key: "szs",
       data: testdata,
       success: () => {
         console.log("========");
       }
     });
-
-    // const val = storage?.getStorageSync("test");
-    // console.log("val", val);
 
     storage
       ?.getStorage({
