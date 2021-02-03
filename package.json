@@ -1,6 +1,6 @@
 {
   "name": "vue3-storage",
-  "version": "0.1.7",
+  "version": "0.1.9",
   "description": "Vue3 plugin for work with local storage, session storage and websql from Vue context, inspired by tarojs and vue-ls.",
   "repository": {
     "type": "git",

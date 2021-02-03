@@ -1,11 +1,11 @@
-import { App, Plugin, ref } from "vue";
+import { App, ref } from "vue";
 
 import { StorageClass } from "./storage";
 import { StorageInterface, StorageConfig, StorageType } from "./types";
 
 const webStorage = ref<StorageClass | null>(null);
 
-const Vue3Storage: Plugin = {
+const Vue3Storage = {
   install: (app: App, options: StorageConfig) => {
     const _options: StorageConfig = {
       storage: options?.storage || StorageType.Local,

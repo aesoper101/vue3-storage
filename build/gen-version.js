@@ -35,5 +35,5 @@ pkgKeys.forEach(value => {
 
 // 异步写入数据到文件
 fs.writeJSONSync(path.resolve(distRoot, "package.json"), packageData, {
-  spaces: 4
+  spaces: 2
 });

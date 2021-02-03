@@ -16,7 +16,6 @@ export class StorageClass implements StorageInterface {
   protected namespace = "pro_";
 
   constructor(storage: Storage) {
-    console.log("storage", storage)
     this.storage = storage;
   }
 
