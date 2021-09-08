@@ -46,7 +46,8 @@
     "build:version": "node build/gen-version.js",
     "clean:dist": "rimraf dist",
     "pub": "cd dist && npm publish --registry=http://registry.npmjs.org && cd ..",
-    "unpub": "npm unpublish vue3-storage --force --registry=http://registry.npmjs.org"
+    "unpub": "npm unpublish vue3-storage --force --registry=http://registry.npmjs.org",
+    "prelink": "cd dist && yarn link && cd .. && yarn link vue3-storage"
   },
   "dependencies": {
     "core-js": "^3.6.5",

@@ -17,7 +17,7 @@ export default class Home extends Vue {
 
     const storage = useStorage();
 
-    storage?.setStorage({
+    storage.setStorage({
       key: "szs",
       data: testdata,
       success: () => {
@@ -26,7 +26,7 @@ export default class Home extends Vue {
     });
 
     storage
-      ?.getStorage({
+      .getStorage({
         key: "test1",
         success: result => {
           console.log("result.data ", result.data);

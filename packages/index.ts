@@ -1,9 +1,9 @@
-import { App, ref } from "vue";
+import { App } from "vue";
 
 import { StorageClass } from "./storage";
 import { StorageInterface, StorageConfig, StorageType } from "./types";
 
-const webStorage = ref<StorageClass | null>(null);
+let webStorage: StorageClass = new StorageClass();
 
 const Vue3Storage = {
   install: (app: App, options: StorageConfig) => {
@@ -20,7 +20,7 @@ const Vue3Storage = {
 
     let storage: Storage;
     switch (
-      _options.storage // eslint-disable-line
+            _options.storage // eslint-disable-line
     ) {
       case StorageType.Local:
         storage = window.localStorage;
@@ -37,15 +37,15 @@ const Vue3Storage = {
         );
     }
 
-    webStorage.value = new StorageClass(storage);
-    webStorage.value.config(_options.namespace);
+    webStorage = new StorageClass(storage);
+    webStorage.config(_options.namespace);
 
-    app.config.globalProperties.$storage = webStorage.value;
+    app.config.globalProperties.$storage = webStorage;
   }
 };
 
-export const useStorage = (): StorageInterface | null => {
-  return webStorage.value;
+export const useStorage = (): StorageInterface => {
+  return webStorage;
 };
 
 export default Vue3Storage;
