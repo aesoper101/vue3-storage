@@ -19,7 +19,11 @@ export class StorageClass implements StorageInterface {
     this.storage = storage;
   }
 
-  config(namespace?: string | undefined): void {
+  config(namespace?: string | false): void {
+    if (namespace === false) {
+      this.namespace = "";
+      return;
+    }
     if (namespace) {
       this.namespace = namespace;
     }

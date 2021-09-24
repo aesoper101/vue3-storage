@@ -9,7 +9,7 @@ const Vue3Storage = {
   install: (app: App, options: StorageConfig) => {
     const _options: StorageConfig = {
       storage: options?.storage || StorageType.Local,
-      namespace: options?.namespace || "pro_"
+      namespace: options?.namespace ?? "pro_"
     };
 
     if (typeof window === "undefined") {
@@ -44,8 +44,12 @@ const Vue3Storage = {
   }
 };
 
-export const useStorage = (): StorageInterface => {
+export const useStorage = (
+  namespace: string | false = ""
+): StorageInterface => {
+  webStorage.config(namespace);
   return webStorage;
 };
 
+export { StorageConfig, StorageType };
 export default Vue3Storage;

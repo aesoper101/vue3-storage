@@ -24,8 +24,12 @@ Register
 import Vue3Storage from "vue3-storage";
 
 const app = createApp(App);
-app.use(Vue3Storage)
+app.use(router)
+    .use(Vue3Storage, { namespace: "pro_", storage: StorageType.Local })
+    .mount("#app");
 ```
+if you not set plugin options, default `{ namespace: "pro_", storage: StorageType.Local }`.
+
 
 ### Teh Second step
 use Global ComponentCustomProperties ```this.$storage```
@@ -68,7 +72,7 @@ export default defineComponent({
   setup() {
     const storage = useStorage();
 
-    storage?.setStorageSync("test-key", "testdata22");
+    storage.setStorageSync("test-key", "testdata22");
     return {};
   }
 });
@@ -86,7 +90,7 @@ export default defineComponent({
   setup() {
     const storage = useStorage();
 
-    storage?.setStorage({
+    storage.setStorage({
       key: "test-key",
       data: "testdata22",
       success: (callback: CallbackResult) => {
@@ -111,7 +115,7 @@ export default defineComponent({
     const storage = useStorage();
 
     storage
-      ?.setStorage({
+      .setStorage({
         key: "test-key",
         data: "testdata22"
       })

@@ -6,7 +6,7 @@ export enum StorageType {
 }
 
 export interface StorageConfig {
-  namespace?: string;
+  namespace?: string | false;
   storage?: StorageType;
 }
 

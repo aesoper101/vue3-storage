@@ -1,21 +1,19 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
+    <button @click="deleteData">Delete</button>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
+import { defineComponent } from "vue";
 import { useStorage } from "vue3-storage";
 
-@Options({
-  components: {}
-})
-export default class Home extends Vue {
-  created() {
+export default defineComponent({
+  setup() {
     const testdata = { a: 11, b: 221 };
 
-    const storage = useStorage();
+    const storage = useStorage("test_");
 
     storage.setStorage({
       key: "szs",
@@ -38,6 +36,12 @@ export default class Home extends Vue {
       .catch(reason => {
         console.log("reason------", reason);
       });
+
+    const deleteData = () => {
+      storage.removeStorageSync("szs");
+    };
+
+    return { deleteData };
   }
-}
+});
 </script>
