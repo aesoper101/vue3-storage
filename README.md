@@ -31,7 +31,7 @@ app.use(router)
 if you not set plugin options, default `{ namespace: "pro_", storage: StorageType.Local }`.
 
 
-### Teh Second step
+### The Second step
 use Global ComponentCustomProperties ```this.$storage```
 
 ```vue
